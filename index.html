@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GuruFolio - 투자 고수의 포트폴리오</title>
+    <title>GuruFolio - Investment Guru Portfolios</title>
     <style>
         /* Dark Theme Styles */
         :root {
@@ -19,7 +19,7 @@
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
-            font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+            font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
             line-height: 1.6;
@@ -170,7 +170,7 @@
         }
 
         .pricing-card.featured::before {
-            content: "인기";
+            content: attr(data-popular);
             position: absolute;
             top: -12px;
             right: 20px;
@@ -283,6 +283,40 @@
         .stat-label {
             font-size: 1rem;
         }
+
+        .language-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .language-btn {
+            background-color: transparent;
+            color: var(--text-color);
+            border: 1px solid var(--card-border);
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .language-btn:hover, .language-btn.active {
+            background-color: var(--secondary-color);
+            color: #000;
+            border-color: var(--secondary-color);
+        }
+
+        [lang="en"], [lang="ko"] {
+            display: none;
+        }
+
+        html[lang="en"] [lang="en"],
+        html[lang="ko"] [lang="ko"] {
+            display: block;
+        }
         
         /* Responsive adjustments */
         @media (max-width: 768px) {
@@ -297,152 +331,272 @@
             .tagline {
                 font-size: 1rem;
             }
+
+            .language-switcher {
+                position: relative;
+                top: auto;
+                right: auto;
+                justify-content: center;
+                margin-bottom: 1rem;
+            }
         }
     </style>
 </head>
 <body>
     <header>
+        <div class="language-switcher">
+            <button class="language-btn" data-lang="en">English</button>
+            <button class="language-btn" data-lang="ko">한국어</button>
+        </div>
         <div class="logo">GuruFolio</div>
-        <div class="tagline">투자 고수의 포트폴리오를 한 눈에</div>
+        <div class="tagline" lang="ko">투자 고수의 포트폴리오를 한 눈에</div>
+        <div class="tagline" lang="en">Track Investment Masters' Portfolios at a Glance</div>
     </header>
     
     <div class="container">
         <section class="hero-section">
-            <h1>세계 최고 투자자들의 포트폴리오와 함께 투자하세요</h1>
-            <p>워렌 버핏, 레이 달리오, 찰리 멍거와 같은 세계적인 투자자들의 투자 동향을 실시간으로 확인하고 더 현명한 투자 결정을 내려보세요.</p>
-            <a href="https://apps.apple.com/kr/app/gurufolio-%ED%88%AC%EC%9E%90-%EA%B3%A0%EC%88%98%EC%9D%98-%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4/id6744556716" class="download-btn">앱 다운로드</a>
+            <h1 lang="ko">세계 최고 투자자들의 포트폴리오와 함께 투자하세요</h1>
+            <h1 lang="en">Invest Alongside the World's Greatest Investors</h1>
+            <p lang="ko">워렌 버핏, 레이 달리오, 찰리 멍거와 같은 세계적인 투자자들의 투자 동향을 실시간으로 확인하고 더 현명한 투자 결정을 내려보세요.</p>
+            <p lang="en">Track investment movements of legendary investors like Warren Buffett, Ray Dalio, and Charlie Munger in real-time and make smarter investment decisions.</p>
+            <a href="https://apps.apple.com/kr/app/gurufolio-%ED%88%AC%EC%9E%90-%EA%B3%A0%EC%88%98%EC%9D%98-%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4/id6744556716" class="download-btn" lang="ko">앱 다운로드</a>
+            <a href="https://apps.apple.com/kr/app/gurufolio-%ED%88%AC%EC%9E%90-%EA%B3%A0%EC%88%98%EC%9D%98-%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4/id6744556716" class="download-btn" lang="en">Download App</a>
         </section>
         
         <section class="stats-section">
             <div class="stats-grid">
                 <div class="stat-card">
                     <div class="stat-number">500+</div>
-                    <div class="stat-label">대형 투자자</div>
+                    <div class="stat-label" lang="ko">대형 투자자</div>
+                    <div class="stat-label" lang="en">Large Investors</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">10,000+</div>
-                    <div class="stat-label">종목 분석</div>
+                    <div class="stat-label" lang="ko">종목 분석</div>
+                    <div class="stat-label" lang="en">Stock Analyses</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">분기별</div>
-                    <div class="stat-label">업데이트</div>
+                    <div class="stat-number" lang="ko">분기별</div>
+                    <div class="stat-number" lang="en">Quarterly</div>
+                    <div class="stat-label" lang="ko">업데이트</div>
+                    <div class="stat-label" lang="en">Updates</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">100만+</div>
-                    <div class="stat-label">다운로드</div>
+                    <div class="stat-number">1M+</div>
+                    <div class="stat-label" lang="ko">다운로드</div>
+                    <div class="stat-label" lang="en">Downloads</div>
                 </div>
             </div>
         </section>
         
         <section class="features-section">
-            <h2 class="section-title">주요 기능</h2>
+            <h2 class="section-title" lang="ko">주요 기능</h2>
+            <h2 class="section-title" lang="en">Key Features</h2>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">📊</div>
-                    <h3 class="feature-title">실시간 포트폴리오 트래킹</h3>
-                    <p>전 세계 주요 투자자들의 포트폴리오 변화를 실시간으로 확인하고 분석할 수 있습니다.</p>
+                    <h3 class="feature-title" lang="ko">실시간 포트폴리오 트래킹</h3>
+                    <h3 class="feature-title" lang="en">Real-time Portfolio Tracking</h3>
+                    <p lang="ko">전 세계 주요 투자자들의 포트폴리오 변화를 실시간으로 확인하고 분석할 수 있습니다.</p>
+                    <p lang="en">Monitor and analyze portfolio changes of major global investors in real-time.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🔍</div>
-                    <h3 class="feature-title">심층 분석 리포트</h3>
-                    <p>각 투자자의 매수/매도 결정에 대한 상세한 분석과 배경 정보를 제공합니다.</p>
+                    <h3 class="feature-title" lang="ko">심층 분석 리포트</h3>
+                    <h3 class="feature-title" lang="en">In-depth Analysis Reports</h3>
+                    <p lang="ko">각 투자자의 매수/매도 결정에 대한 상세한 분석과 배경 정보를 제공합니다.</p>
+                    <p lang="en">Get detailed analysis and background information on each investor's buy/sell decisions.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🔔</div>
-                    <h3 class="feature-title">맞춤형 알림 서비스</h3>
-                    <p>관심 있는 투자자나 종목의 변동 사항을 실시간 알림으로 받아볼 수 있습니다.</p>
+                    <h3 class="feature-title" lang="ko">맞춤형 알림 서비스</h3>
+                    <h3 class="feature-title" lang="en">Customized Alert Service</h3>
+                    <p lang="ko">관심 있는 투자자나 종목의 변동 사항을 실시간 알림으로 받아볼 수 있습니다.</p>
+                    <p lang="en">Receive real-time notifications about changes in your favorite investors or stocks.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">📱</div>
-                    <h3 class="feature-title">직관적인 인터페이스</h3>
-                    <p>복잡한 투자 정보를 쉽게 이해할 수 있는 시각적으로 직관적인 디자인을 제공합니다.</p>
+                    <h3 class="feature-title" lang="ko">직관적인 인터페이스</h3>
+                    <h3 class="feature-title" lang="en">Intuitive Interface</h3>
+                    <p lang="ko">복잡한 투자 정보를 쉽게 이해할 수 있는 시각적으로 직관적인 디자인을 제공합니다.</p>
+                    <p lang="en">Visually intuitive design that makes complex investment information easy to understand.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">📈</div>
-                    <h3 class="feature-title">성과 비교 분석</h3>
-                    <p>다양한 투자자들의 포트폴리오 성과를 비교하고 분석할 수 있습니다.</p>
+                    <h3 class="feature-title" lang="ko">성과 비교 분석</h3>
+                    <h3 class="feature-title" lang="en">Performance Comparison</h3>
+                    <p lang="ko">다양한 투자자들의 포트폴리오 성과를 비교하고 분석할 수 있습니다.</p>
+                    <p lang="en">Compare and analyze portfolio performance of various investors.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🔄</div>
-                    <h3 class="feature-title">분기별 업데이트</h3>
-                    <p>13F 보고서 기반의 최신 포트폴리오 정보를 분기별로 업데이트합니다.</p>
+                    <h3 class="feature-title" lang="ko">분기별 업데이트</h3>
+                    <h3 class="feature-title" lang="en">Quarterly Updates</h3>
+                    <p lang="ko">13F 보고서 기반의 최신 포트폴리오 정보를 분기별로 업데이트합니다.</p>
+                    <p lang="en">Latest portfolio information based on 13F reports updated quarterly.</p>
                 </div>
             </div>
         </section>
         
         <section class="about-section">
-            <h2 class="section-title">GuruFolio 소개</h2>
-            <p>GuruFolio는 워렌 버핏, 레이 달리오, 찰리 멍거와 같은 세계적인 투자 고수들의 투자 전략과 포트폴리오를 추적하고 분석할 수 있는 프리미엄 투자 도구입니다.</p>
-            <p>SEC에 제출된 13F 보고서를 기반으로 대형 투자자들의 포트폴리오 변동 사항을 실시간으로 파악하고, 그들의 투자 결정에서 영감을 얻을 수 있습니다. GuruFolio와 함께라면 투자 전문가들의 통찰력을 바탕으로 더 현명한 투자 결정을 내릴 수 있습니다.</p>
-            <p>초보 투자자부터 전문 투자자까지, GuruFolio는 모든 수준의 투자자들에게 유용한 정보와 도구를 제공합니다. 투자 거장들의 발자취를 따라가면서 자신만의 성공적인 투자 여정을 시작해보세요.</p>
+            <h2 class="section-title" lang="ko">GuruFolio 소개</h2>
+            <h2 class="section-title" lang="en">About GuruFolio</h2>
+            <p lang="ko">GuruFolio는 워렌 버핏, 레이 달리오, 찰리 멍거와 같은 세계적인 투자 고수들의 투자 전략과 포트폴리오를 추적하고 분석할 수 있는 프리미엄 투자 도구입니다.</p>
+            <p lang="en">GuruFolio is a premium investment tool that allows you to track and analyze investment strategies and portfolios of world-renowned investors like Warren Buffett, Ray Dalio, and Charlie Munger.</p>
+            
+            <p lang="ko">SEC에 제출된 13F 보고서를 기반으로 대형 투자자들의 포트폴리오 변동 사항을 실시간으로 파악하고, 그들의 투자 결정에서 영감을 얻을 수 있습니다. GuruFolio와 함께라면 투자 전문가들의 통찰력을 바탕으로 더 현명한 투자 결정을 내릴 수 있습니다.</p>
+            <p lang="en">Based on 13F reports submitted to the SEC, you can track portfolio changes of large investors in real-time and gain inspiration from their investment decisions. With GuruFolio, you can make smarter investment decisions based on the insights of investment experts.</p>
+            
+            <p lang="ko">초보 투자자부터 전문 투자자까지, GuruFolio는 모든 수준의 투자자들에게 유용한 정보와 도구를 제공합니다. 투자 거장들의 발자취를 따라가면서 자신만의 성공적인 투자 여정을 시작해보세요.</p>
+            <p lang="en">From beginner to professional investors, GuruFolio provides useful information and tools for investors of all levels. Start your own successful investment journey by following in the footsteps of investment legends.</p>
         </section>
         
         <section class="pricing-section">
-            <h2 class="section-title">요금제</h2>
+            <h2 class="section-title" lang="ko">요금제</h2>
+            <h2 class="section-title" lang="en">Pricing Plans</h2>
             <div class="pricing-options">
                 <div class="pricing-card">
-                    <h3>기본 플랜</h3>
-                    <div class="price">무료</div>
+                    <h3 lang="ko">기본 플랜</h3>
+                    <h3 lang="en">Basic Plan</h3>
+                    <div class="price" lang="ko">무료</div>
+                    <div class="price" lang="en">Free</div>
                     <ul class="pricing-features">
-                        <li>제한된 투자자 목록 확인</li>
-                        <li>기본 포트폴리오 정보</li>
-                        <li>분기별 업데이트</li>
-                        <li>광고 포함</li>
+                        <li lang="ko">제한된 투자자 목록 확인</li>
+                        <li lang="en">Limited investor list access</li>
+                        <li lang="ko">기본 포트폴리오 정보</li>
+                        <li lang="en">Basic portfolio information</li>
+                        <li lang="ko">분기별 업데이트</li>
+                        <li lang="en">Quarterly updates</li>
+                        <li lang="ko">광고 포함</li>
+                        <li lang="en">With advertisements</li>
                     </ul>
-                    <a href="#" class="subscribe-btn">시작하기</a>
+                    <a href="#" class="subscribe-btn" lang="ko">시작하기</a>
+                    <a href="#" class="subscribe-btn" lang="en">Get Started</a>
                 </div>
-                <div class="pricing-card featured">
-                    <h3>프리미엄 플랜</h3>
-                    <div class="price">₩9,900<span class="price-period">/월</span></div>
+                <div class="pricing-card featured" data-popular="인기" data-popular-en="Popular">
+                    <h3 lang="ko">프리미엄 플랜</h3>
+                    <h3 lang="en">Premium Plan</h3>
+                    <div class="price" lang="ko">₩9,900<span class="price-period">/월</span></div>
+                    <div class="price" lang="en">$9.99<span class="price-period">/month</span></div>
                     <ul class="pricing-features">
-                        <li>모든 투자자 목록 접근</li>
-                        <li>실시간 포트폴리오 업데이트</li>
-                        <li>심층 분석 리포트</li>
-                        <li>맞춤형 알림 서비스</li>
-                        <li>광고 없음</li>
-                        <li>우선 고객 지원</li>
+                        <li lang="ko">모든 투자자 목록 접근</li>
+                        <li lang="en">Access to all investor lists</li>
+                        <li lang="ko">실시간 포트폴리오 업데이트</li>
+                        <li lang="en">Real-time portfolio updates</li>
+                        <li lang="ko">심층 분석 리포트</li>
+                        <li lang="en">In-depth analysis reports</li>
+                        <li lang="ko">맞춤형 알림 서비스</li>
+                        <li lang="en">Customized alert service</li>
+                        <li lang="ko">광고 없음</li>
+                        <li lang="en">No advertisements</li>
+                        <li lang="ko">우선 고객 지원</li>
+                        <li lang="en">Priority customer support</li>
                     </ul>
-                    <a href="#" class="subscribe-btn">구독하기</a>
+                    <a href="#" class="subscribe-btn" lang="ko">구독하기</a>
+                    <a href="#" class="subscribe-btn" lang="en">Subscribe</a>
                 </div>
                 <div class="pricing-card">
-                    <h3>연간 플랜</h3>
-                    <div class="price">₩99,000<span class="price-period">/년</span></div>
+                    <h3 lang="ko">연간 플랜</h3>
+                    <h3 lang="en">Annual Plan</h3>
+                    <div class="price" lang="ko">₩99,000<span class="price-period">/년</span></div>
+                    <div class="price" lang="en">$99.99<span class="price-period">/year</span></div>
                     <ul class="pricing-features">
-                        <li>프리미엄 플랜의 모든 기능</li>
-                        <li>2개월 무료 (연간 요금 기준)</li>
-                        <li>독점 투자 인사이트 리포트</li>
-                        <li>프리미엄 고객 지원</li>
+                        <li lang="ko">프리미엄 플랜의 모든 기능</li>
+                        <li lang="en">All features of Premium Plan</li>
+                        <li lang="ko">2개월 무료 (연간 요금 기준)</li>
+                        <li lang="en">2 months free (based on annual fee)</li>
+                        <li lang="ko">독점 투자 인사이트 리포트</li>
+                        <li lang="en">Exclusive investment insight reports</li>
+                        <li lang="ko">프리미엄 고객 지원</li>
+                        <li lang="en">Premium customer support</li>
                     </ul>
-                    <a href="#" class="subscribe-btn">연간 구독하기</a>
+                    <a href="#" class="subscribe-btn" lang="ko">연간 구독하기</a>
+                    <a href="#" class="subscribe-btn" lang="en">Subscribe Annually</a>
                 </div>
             </div>
         </section>
         
         <section class="testimonials-section">
-            <h2 class="section-title">사용자 후기</h2>
+            <h2 class="section-title" lang="ko">사용자 후기</h2>
+            <h2 class="section-title" lang="en">User Reviews</h2>
             <div class="testimonial-card">
-                <p class="testimonial-text">"GuruFolio를 사용한 이후 내 투자 전략이 완전히 바뀌었어요. 워렌 버핏의 포트폴리오 변화를 쉽게 확인할 수 있어 투자 결정에 큰 도움이 됩니다."</p>
-                <p class="testimonial-author">- 김투자</p>
+                <p class="testimonial-text" lang="ko">"GuruFolio를 사용한 이후 내 투자 전략이 완전히 바뀌었어요. 워렌 버핏의 포트폴리오 변화를 쉽게 확인할 수 있어 투자 결정에 큰 도움이 됩니다."</p>
+                <p class="testimonial-text" lang="en">"Since using GuruFolio, my investment strategy has completely changed. Being able to easily check Warren Buffett's portfolio changes has been a great help in making investment decisions."</p>
+                <p class="testimonial-author" lang="ko">- 김투자</p>
+                <p class="testimonial-author" lang="en">- Kim Tuja</p>
             </div>
             <div class="testimonial-card">
-                <p class="testimonial-text">"투자 초보자로서 큰 투자자들의 전략을 배울 수 있는 최고의 도구입니다. 직관적인 인터페이스와 상세한 분석 자료가 정말 유용해요."</p>
-                <p class="testimonial-author">- 이주식</p>
+                <p class="testimonial-text" lang="ko">"투자 초보자로서 큰 투자자들의 전략을 배울 수 있는 최고의 도구입니다. 직관적인 인터페이스와 상세한 분석 자료가 정말 유용해요."</p>
+                <p class="testimonial-text" lang="en">"As a beginner investor, this is the best tool to learn from major investors' strategies. The intuitive interface and detailed analysis materials are really useful."</p>
+                <p class="testimonial-author" lang="ko">- 이주식</p>
+                <p class="testimonial-author" lang="en">- Lee Jusik</p>
             </div>
             <div class="testimonial-card">
-                <p class="testimonial-text">"프리미엄 구독을 시작한 후, 투자 수익률이 눈에 띄게 향상되었습니다. 전문가들의 통찰력을 쉽게 접할 수 있어 정말 가치 있는 서비스입니다."</p>
-                <p class="testimonial-author">- 박성공</p>
+                <p class="testimonial-text" lang="ko">"프리미엄 구독을 시작한 후, 투자 수익률이 눈에 띄게 향상되었습니다. 전문가들의 통찰력을 쉽게 접할 수 있어 정말 가치 있는 서비스입니다."</p>
+                <p class="testimonial-text" lang="en">"After starting a premium subscription, my investment returns have noticeably improved. It's a really valuable service that gives easy access to experts' insights."</p>
+                <p class="testimonial-author" lang="ko">- 박성공</p>
+                <p class="testimonial-author" lang="en">- Park Success</p>
             </div>
         </section>
     </div>
     
     <footer>
         <div class="footer-links">
-            <a href="#">개인정보 처리방침</a>
-            <a href="#">이용약관</a>
-            <a href="#">고객지원</a>
-            <a href="#">문의하기</a>
+            <a href="#" lang="ko">개인정보 처리방침</a>
+            <a href="#" lang="en">Privacy Policy</a>
+            <a href="#" lang="ko">이용약관</a>
+            <a href="#" lang="en">Terms of Service</a>
+            <a href="#" lang="ko">고객지원</a>
+            <a href="#" lang="en">Customer Support</a>
+            <a href="#" lang="ko">문의하기</a>
+            <a href="#" lang="en">Contact Us</a>
         </div>
         <div class="copyright">© 2025 GuruFolio. All rights reserved.</div>
     </footer>
+
+    <script>
+        // Detect user's language preference
+        function detectLanguage() {
+            const userLang = navigator.language || navigator.userLanguage;
+            return userLang.startsWith('ko') ? 'ko' : 'en';
+        }
+
+        // Set language based on preference
+        function setLanguage(lang) {
+            document.documentElement.lang = lang;
+            
+            // Update active button
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.lang === lang) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Update featured card label
+            const featuredCard = document.querySelector('.pricing-card.featured');
+            if (featuredCard) {
+                featuredCard.setAttribute('data-popular', lang === 'ko' ? '인기' : 'Popular');
+            }
+
+            // Save preference
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check for saved preference
+            const savedLang = localStorage.getItem('preferredLanguage');
+            const initialLang = savedLang || detectLanguage();
+            setLanguage(initialLang);
+
+            // Add event listeners to language buttons
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    setLanguage(this.dataset.lang);
+                });
+            });
+        });
+    </script>
 </body>
 </html>
